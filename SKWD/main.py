@@ -14,19 +14,12 @@ def mainMenu():
       '1)Deauth a client\n2)Deauth an Access Point\nE)Exit WifiDeath\nSKWD>'))
 
     if selectionFromMenu == '1':
-        if name == 'nt':
-          system('cls')
-        else:
-          system('clear')
+        system('clear')
         print('OK, Client Deauth.')
         deauth.wifiDeauthClient()
 
     elif selectionFromMenu == '2':
-        if name == 'nt':
-          system('cls')
-        else:
-          system('clear')
-          print('OK, AP Deauth.')
+        print('OK, AP Deauth.')
         deauth.wifiDeauthAP()
 
     elif selectionFromMenu == 'E':
