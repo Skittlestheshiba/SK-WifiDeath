@@ -3,7 +3,7 @@ import sys
 from os import system, name
 import deauth
 import colors
-ver = '0.3'
+ver = '0.5'
 
 
 def mainMenu():
