@@ -5,7 +5,7 @@ import deauth
 import colors
 
 #Current Version:
-ver = '0.2'
+ver = '0.4'
 
 def main():
     print(colors.blue(' ________________________\n|SK-WifiDeath ' + ver +'       |\n| Written By Skittles_  |\n|       ssssssss        |\n|    sss        sss     |\n| ss     sssss      ss  |\n|    ssss     ssss      |\n|         sss           |\n|          _            |\n|_________|S|___________|'))
