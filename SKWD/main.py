@@ -3,10 +3,11 @@ import sys
 from os import system, name
 import deauth
 import colors
-ver = '0.5'
 
+#Current Version:
+ver = '0.2'
 
-def mainMenu():
+def main():
     print(colors.blue(' ________________________\n|SK-WifiDeath ' + ver +'       |\n| Written By Skittles_  |\n|       ssssssss        |\n|    sss        sss     |\n| ss     sssss      ss  |\n|    ssss     ssss      |\n|         sss           |\n|          _            |\n|_________|S|___________|'))
     print('')
     print('')
@@ -17,14 +18,14 @@ def mainMenu():
         system('clear')
         print('OK, Client Deauth.')
         deauth.wifiDeauthClient()
+        mainMenu()
 
     elif selectionFromMenu == '2':
         print('OK, AP Deauth.')
         deauth.wifiDeauthAP()
-
+        mainMenu()
     elif selectionFromMenu == 'E':
         sys.exit()
-
     else:
       if name == 'nt':
         system('cls')
@@ -32,5 +33,6 @@ def mainMenu():
         system('clear')
       mainMenu()
 
-
-mainMenu()
+if __name__ == '__main__':
+  main()
+#Written by Skittles_
