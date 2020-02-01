@@ -14,6 +14,7 @@ def wifiDeauthAP():
   #getting the information from user, interface, client, and Access Point mac addresses
   interface = input(colors.blue('What interface would you like to use for deauth?:\n????>'))
   print(colors.red('OK, ' + interface))
+  print('Press Ctrl+C when done.')
   scanForTarget()
 
   client = 'FF:FF:FF:FF:FF'
@@ -55,7 +56,7 @@ def wifiDeauthClient():
 
   client = input(colors.blue('What is the client\'s BSSID (MAC Address)\nSKWD>'))
   print(colors.red('OK, ' + client))
-
+  print('Press Ctrl+C when done.')
   scanForTarget()
 
   accessPoint = input(colors.blue('What is the Access Point\'s BSSID (MAC Address)\nSKWD>'))
@@ -99,7 +100,7 @@ def scanForTarget():
                     print("MAC:", packet.addr2, " SSID:", packet.info)
                     print(ap_list)
 
-    sniff(count=100, iface=interface, prn = PacketHandler)
+    sniff(count=10000, iface=interface, prn = PacketHandler)
 
 #Feature coming soon, checks whether or not a selected interface is in monitor mode, as it is required
 #to send deauth packets. -SK
